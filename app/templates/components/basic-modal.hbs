@@ -1,0 +1,19 @@
+{{#bs-modal open=modalOpen onSubmit=(action "submitModal") onHidden=(action "closeModal") as |modal|}}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      {{this.title}}
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+    {{#if this.errors}}
+      <div class="alert alert-warning" role="alert">
+        {{this.errors}}
+      </div>
+    {{/if}}
+    {{yield}}
+  {{/modal.body}}
+  {{#modal.footer}}
+    {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
+    {{#bs-button type="primary" onClick=(action "submitModal")}}{{this.submitText}}{{/bs-button}}
+  {{/modal.footer}}
+{{/bs-modal}}

@@ -1,0 +1,8 @@
+<select class={{selectClass}} onchange={{action "changeSelection" value="target.value"}}>
+  {{#if nullOption}}
+    <option disabled selected>Select an option</option>
+  {{/if}}
+  {{#each this.options as |op|}}
+    <option value={{op}}>{{op}}</option>
+  {{/each}}
+</select>

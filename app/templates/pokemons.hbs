@@ -1,0 +1,13 @@
+<div class="float-right">
+  {{#link-to "pokemons.add"}}
+    <button type="button" class="btn btn-primary">Add pokemon</button>
+  {{/link-to}}
+
+</div>
+
+<h5>Pokemon List</h5>
+<br>
+
+<BasicTable @model={{this.model}} @columns={{this.columns}} @rowClick={{action "rowClick"}} />
+
+{{outlet}}

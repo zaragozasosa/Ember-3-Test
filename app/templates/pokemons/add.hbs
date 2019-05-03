@@ -1,0 +1,21 @@
+<BasicModal @title="Add New Pokemon" @submit={{action "savePokemon" this}} @close={{action "close"}} @modalOpen="true"
+  @model={{model}} @errors={{errors}}>
+  <form>
+    <div class="form-group">
+      <label>Name<bold>*</bold> :</label>
+      {{input value=this.model.name type="text" class="form-control" placeholder="Enter name"}}
+    </div>
+    <div class="form-group">
+      <label>Level<bold>*</bold> :</label>
+      {{input value=this.model.level type="number" class="form-control" placeholder="Enter level"}}
+    </div>
+    <div class="form-group">
+      <label>Type 1<bold>*</bold> :</label>
+      <BasicSelect @selectClass="form-control" @value={{this.model.type1}} @options={{this.pokemonTypes}} />
+    </div>
+    <div class="form-group">
+      <label>Type 2:</label>
+      <BasicSelect @selectClass="form-control" @value={{this.model.type2}} @options={{this.pokemonTypes}} @nullOption="true" />
+    </div>
+  </form>
+</BasicModal>

@@ -1,5 +1,8 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="container">
+  {{#link-to "pokemons"}}
+    <h4>Legalmation Coding Challenge</h4>
+    <p>Name: Omar Zaragoza</p>
+  {{/link-to}}
+  <hr>
+  {{outlet}}
+</div>
