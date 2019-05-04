@@ -8,7 +8,7 @@ export default function() {
   this.del("/pokemons/:id", (schema, request) => {
     let pokemon = schema.pokemons.find(request.params.id);
 
-    pokemon.moves.delete();
-    pokemon.delete();
+    pokemon.moves.destroy();
+    pokemon.destroy();
   });
 }

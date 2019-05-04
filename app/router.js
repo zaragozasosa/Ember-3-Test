@@ -10,7 +10,9 @@ Router.map(function() {
   this.route("pokemons", function() {
     this.route("add");
   });
-  this.route("pokemon", { path: "pokemon/:pokemon_id" });
+  this.route("pokemon", { path: "pokemon/:pokemon_id" }, function() {
+    this.route("delete");
+  });
 });
 
 export default Router;

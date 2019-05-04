@@ -17,9 +17,11 @@ export default DS.Model.extend({
     }
   }),
 
-  movesSortProperties: ["power:desc"],
+  movesSortProperties: computed(function() {
+    return ["power:desc"];
+  }),
 
-  sortedMoves: Ember.computed.sort("moves", "movesSortProperties"),
+  sortedMoves: computed.sort("moves", "movesSortProperties"),
 
   strongestMove: computed("sortedMoves", function() {
     if (this.sortedMoves.firstObject) {

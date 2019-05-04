@@ -1,5 +1,14 @@
 <div class="card">
   <div class="card-header">
+    <div class="float-right">
+      {{!-- {{#link-to "pokemon.add-move"}}
+        <button type="button" class="btn btn-primary">Edit Pokemon</button>
+      {{/link-to}} --}}
+
+      {{#link-to "pokemon.delete"}}
+        <button type="button" class="btn btn-danger">Delete</button>
+      {{/link-to}}
+    </div>
     <h5 class="card-title">Pokemon Details</h5>
   </div>
   <div class="card-body">
@@ -9,10 +18,22 @@
     {{#if model.strongestMove}}
       <p class="card-text">Strongest Move: <strong>{{model.strongestMove.name}}</strong></p>
     {{/if}}
-
-    <h4>Moves</h4>
-
-    <BasicTable @model={{model.moves}} @columns={{columns}} />
-
   </div>
 </div>
+<br>
+<div class="float-right">
+  {{!-- {{#link-to "pokemon.add-move"}}
+    <button type="button" class="btn btn-primary">Add move</button>
+  {{/link-to}} --}}
+</div>
+<h4>Moves</h4>
+<br>
+{{#if model.moves}}
+  <BasicTable @model={{model.moves}} @columns={{columns}} />
+{{else}}
+  <div class="alert alert-warning" role="alert">
+    This pokemon has no moves yet.
+  </div>
+{{/if}}
+
+{{outlet}}

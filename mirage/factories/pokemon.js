@@ -2,7 +2,10 @@ import { Factory, trait } from "ember-cli-mirage";
 
 export default Factory.extend({
   name() {
-    var index = Math.floor(Math.random() * 151);
+    var min = 0;
+    var max = 150;
+    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+
     var array = [
       "Bulbasaur",
       "Ivysaur",
@@ -164,7 +167,10 @@ export default Factory.extend({
   },
 
   type1() {
-    var index = Math.floor(Math.random() * 14);
+    var min = 0;
+    var max = 13;
+    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+
     var array = [
       "Grass",
       "Fire",
@@ -188,7 +194,10 @@ export default Factory.extend({
   type2() {
     var multiType = Math.floor(Math.random() * 3) === 1;
 
-    var index = Math.floor(Math.random() * 14);
+    var min = 0;
+    var max = 13;
+    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+
     var array = [
       "Grass",
       "Fire",

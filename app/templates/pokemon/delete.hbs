@@ -1,0 +1,7 @@
+<BasicModal @title="Delete Pokemon" @submit={{action "deletePokemon" this}} @close={{action "close"}} @modalOpen=true
+  @model={{model}} @submitText="Yes">
+  <div class="alert alert-danger" role="alert">
+    This will delete the Pokemon permanently!
+  </div>
+  <p>Are you sure you wish to delete this Pokemon?</p>
+</BasicModal>

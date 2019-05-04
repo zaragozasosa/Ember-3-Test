@@ -2,7 +2,10 @@ import { Factory } from "ember-cli-mirage";
 
 export default Factory.extend({
   name() {
-    var index = Math.floor(Math.random() * 151);
+    var min = 0;
+    var max = 163;
+    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+
     var array = [
       "Absorb",
       "Acid",
@@ -175,7 +178,10 @@ export default Factory.extend({
   },
 
   type() {
-    var index = Math.floor(Math.random() * 14);
+    var min = 0;
+    var max = 13;
+    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+
     var array = [
       "Grass",
       "Fire",
@@ -197,6 +203,6 @@ export default Factory.extend({
   },
 
   power() {
-    return 20 + Math.floor(Math.random() * Math.floor(100));
+    return 20 + Math.floor(Math.random() * 100);
   }
 });
