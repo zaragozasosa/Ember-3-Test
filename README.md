@@ -1,7 +1,6 @@
-# legalmation-app
+# Ember 3 test
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This README is just to explain some of the details behind this test project.
 
 ## Prerequisites
 
@@ -18,40 +17,27 @@ You will need the following things properly installed on your computer.
 * `cd legalmation-app`
 * `npm install`
 
-## Running / Development
+##External libraries
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* ember-bootstrap
+* SASS
 
-### Code Generators
+##Mirage configuration
 
-Make use of the many generators for code, try `ember help generate` for more details
+The current configuration creates five random Pokemon on start. These have their level and their typing created at random (from a simple array). They also own 5 Moves, created randomly as well.
 
-### Running Tests
+##Components created
 
-* `ember test`
-* `ember test --server`
+For this project, I decided to try to use the least amount of external dependencies, so I made a few components to make the code cleaner.
+To render tables, I created the component `BasicTable` which with an array of rows and columns, can render a table (for the moment, of basic strings and integers). Internally it uses `BasicTableCell` to render each <TD> of the table, this one could get similar looking components to be able to render more complicated objects. Finally, `BasicTableFilter` is used to render inputs on the top of the table, allowing the user to filter the values displayed in the table.
+  
+Since Ember somehow still doesn't own a native select component, I created `BasicSelect` to create dropdowns that react to changes and are able to load a default value.
+And making use of `ember-bootstrap`, I made `BasicModal` encapsulating the code used to generate modals they have in their API.
 
-### Linting
+##Testing
 
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+The project currenly only has a few unit and integration tests. I wanted to add a few acceptance tests, but somehow I could not make them work with Mirage.
 
-### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+Any other question? Feel free to contact me and ask!
 
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
