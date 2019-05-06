@@ -1,26 +1,30 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | basic-table', function(hooks) {
+module("Integration | Component | basic-table", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("it renders", async function(assert) {
+    this.set("rows", [{ name: "test", type: "test" }]);
+    this.set("columns", [
+      { propertyName: "name", title: "Name" },
+      { propertyName: "type", title: "Type" }
+    ]);
 
     await render(hbs`{{basic-table}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(
+      this.element.textContent.trim(),
+      "There are no available rows to show."
+    );
 
-    // Template block usage:
     await render(hbs`
-      {{#basic-table}}
-        template block text
-      {{/basic-table}}
+      <BasicTable @model={{rows}} @columns={{columns}} />
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.querySelectorAll("table").length, "1");
+    assert.equal(this.element.querySelectorAll("tr.data-row").length, "1");
   });
 });

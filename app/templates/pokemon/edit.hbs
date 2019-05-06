@@ -1,0 +1,21 @@
+<BasicModal @title="Edit Pokemon" @submit={{action "editPokemon"}} @close={{action "close"}} @modalOpen="true" @errors={{errors}}>
+  <form>
+    <div class="form-group">
+      <label>Name<bold>*</bold> :</label>
+      {{input value=this.modelCopy.name type="text" class="form-control" placeholder="Enter name"}}
+    </div>
+    <div class="form-group">
+      <label>Level<bold>*</bold> :</label>
+      {{input value=this.modelCopy.level type="number" class="form-control" placeholder="Enter level"}}
+    </div>
+    <div class="form-group">
+      <label>Type 1<bold>*</bold> :</label>
+      <BasicSelect @selectClass="form-control" @value={{this.modelCopy.type1}} @options={{this.pokemonTypes}} />
+    </div>
+    <div class="form-group">
+      <label>Type 2:</label>
+      <BasicSelect @selectClass="form-control" @value={{this.modelCopy.type2}} @options={{this.pokemonTypes}}
+        @nullOption="true" />
+    </div>
+  </form>
+</BasicModal>

@@ -6,8 +6,8 @@ export default Component.extend({
   column: null,
 
   value: computed("row", "column", function() {
-    var row = this.get("row");
-    var column = this.get("column");
+    let row = this.get("row");
+    let column = this.get("column");
 
     if (row && column && column.propertyName) {
       if (row[column.propertyName]) {

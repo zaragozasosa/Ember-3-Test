@@ -1,1 +1,16 @@
-{{outlet}}
+<BasicModal @title="Add Move" @submit={{action "addMove"}} @close={{action "close"}} @modalOpen="true" @errors={{errors}}>
+  <form>
+    <div class="form-group">
+      <label>Name<bold>*</bold> :</label>
+      {{input value=this.model.name type="text" class="form-control" placeholder="Enter name"}}
+    </div>
+    <div class="form-group">
+      <label>Power<bold>*</bold> :</label>
+      {{input value=this.model.power type="number" class="form-control" placeholder="Enter power"}}
+    </div>
+    <div class="form-group">
+      <label>Type<bold>*</bold> :</label>
+      <BasicSelect @selectClass="form-control" @value={{this.model.type}} @options={{this.pokemonTypes}} />
+    </div>
+  </form>
+</BasicModal>

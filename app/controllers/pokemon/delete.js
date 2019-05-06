@@ -1,12 +1,16 @@
 import Controller from "@ember/controller";
-import { computed } from "@ember/object";
 
 export default Controller.extend({
   actions: {
     deletePokemon() {
-      var pokemon = this.model;
-      pokemon.destroyRecord();
-      this.transitionToRoute("pokemons");
+      let pokemon = this.model;
+
+      pokemon.deleteRecord();
+      pokemon.save().then(
+        function() {
+          this.transitionToRoute("pokemons");
+        }.bind(this)
+      );
     },
 
     close() {

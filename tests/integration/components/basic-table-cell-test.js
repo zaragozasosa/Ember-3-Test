@@ -1,26 +1,23 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | basic-table-cell', function(hooks) {
+module("Integration | Component | basic-table-cell", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("it renders", async function(assert) {
+    this.set("column", { propertyName: "name" });
+    this.set("row", { name: "test" });
 
     await render(hbs`{{basic-table-cell}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), "");
 
-    // Template block usage:
     await render(hbs`
-      {{#basic-table-cell}}
-        template block text
-      {{/basic-table-cell}}
+      <BasicTableCell @column={{column}} @row={{row}} />
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), this.get("row.name"));
   });
 });

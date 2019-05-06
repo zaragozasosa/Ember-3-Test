@@ -6,7 +6,12 @@ export default Component.extend({
   options: null,
 
   didInsertElement() {
-    if (!this.nullOption && !this.value && this.options.length) {
+    if (
+      !this.nullOption &&
+      !this.value &&
+      this.options &&
+      this.options.length
+    ) {
       this.set("value", this.options[0]);
     }
   },

@@ -2,11 +2,11 @@ import { Factory } from "ember-cli-mirage";
 
 export default Factory.extend({
   name() {
-    var min = 0;
-    var max = 163;
-    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+    let min = 0;
+    let max = 163;
+    let index = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    var array = [
+    let array = [
       "Absorb",
       "Acid",
       "Acid Armor",
@@ -178,11 +178,11 @@ export default Factory.extend({
   },
 
   type() {
-    var min = 0;
-    var max = 13;
-    var index = Math.floor(Math.random() * (max - min + 1)) + min;
+    let min = 0;
+    let max = 13;
+    let index = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    var array = [
+    let array = [
       "Grass",
       "Fire",
       "Electric",

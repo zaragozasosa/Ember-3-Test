@@ -5,6 +5,12 @@
   overflow-y: scroll;
 }
 
-.basic-table tr.data-row {
-  cursor: pointer;
+.basic-table {
+  tr.data-row {
+    cursor: pointer;
+  }
+
+  .row {
+    margin-right: 0px;
+  }
 }

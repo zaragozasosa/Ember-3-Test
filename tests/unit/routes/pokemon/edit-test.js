@@ -1,11 +1,11 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Route | pokemon/index', function(hooks) {
+module('Unit | Route | pokemon/edit', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:pokemon/index');
+    let route = this.owner.lookup('route:pokemon/edit');
     assert.ok(route);
   });
 });

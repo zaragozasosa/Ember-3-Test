@@ -6,11 +6,13 @@ export default Controller.extend({
     return [
       {
         propertyName: `name`,
-        title: `Name`
+        title: `Name`,
+        filter: true
       },
       {
         propertyName: `typeLabel`,
-        title: `Type`
+        title: `Type`,
+        filter: true
       },
       {
         propertyName: `level`,

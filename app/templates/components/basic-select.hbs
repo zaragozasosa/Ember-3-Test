@@ -3,6 +3,6 @@
     <option disabled selected>Select an option</option>
   {{/if}}
   {{#each this.options as |op|}}
-    <option value={{op}}>{{op}}</option>
+    <option value={{op}} selected={{is-equal value op}}>{{op}}</option>
   {{/each}}
 </select>

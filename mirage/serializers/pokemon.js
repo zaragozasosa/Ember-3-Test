@@ -1,5 +1,8 @@
 import { JSONAPISerializer } from "ember-cli-mirage";
 
 export default JSONAPISerializer.extend({
-  include: ["moves"]
+  init() {
+    this._super(...arguments);
+    this.include = ["moves"];
+  }
 });

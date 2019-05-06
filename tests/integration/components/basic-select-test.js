@@ -1,26 +1,22 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | basic-select', function(hooks) {
+module("Integration | Component | basic-select", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("it renders", async function(assert) {
+    this.set("options", ["one", "two", "three"]);
 
     await render(hbs`{{basic-select}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), "");
 
-    // Template block usage:
     await render(hbs`
-      {{#basic-select}}
-        template block text
-      {{/basic-select}}
+      <BasicSelect @options={{options}} />
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.querySelectorAll("option").length, "3");
   });
 });

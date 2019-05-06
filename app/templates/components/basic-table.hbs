@@ -1,5 +1,19 @@
 <div class="basic-table">
-  {{#if this.rows}}
+  {{#if showFilters}}
+    <div class="row">
+
+
+      {{#each columns as |col|}}
+        {{#if col.filter}}
+          <div class="col-3">
+            <BasicTableFilter @column={{col}} />
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if this.filteredRows}}
     <table class="table table-striped table-hover">
       <thead>
         <tr>
@@ -11,8 +25,8 @@
         </tr>
       </thead>
       <tbody>
-        {{#each this.rows as |row|}}
-          <tr onclick={{action "rowClick" row}} class="data-row">
+        {{#each this.filteredRows as |row|}}
+          <tr role="button" onclick={{action "rowClick" row}} class="data-row">
             {{#each this.columns as |column|}}
               <td>
                 <BasicTableCell @row={{row}} @column={{column}} />
@@ -22,5 +36,9 @@
         {{/each}}
       </tbody>
     </table>
+  {{else}}
+    <div class="alert alert-warning" role="alert">
+      There are no available rows to show.
+    </div>
   {{/if}}
 </div>

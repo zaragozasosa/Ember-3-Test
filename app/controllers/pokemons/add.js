@@ -22,7 +22,7 @@ export default Controller.extend({
   }),
 
   validateForm(form) {
-    var validate = {
+    let validate = {
       valid: false,
       error: null
     };
@@ -41,10 +41,10 @@ export default Controller.extend({
 
   actions: {
     savePokemon() {
-      var form = this.model;
-      var validate = this.validateForm(form);
+      let form = this.model;
+      let validate = this.validateForm(form);
       if (validate.valid) {
-        var newPokemon = this.store.createRecord("pokemon", {
+        let newPokemon = this.store.createRecord("pokemon", {
           name: form.name,
           type1: form.type1,
           type2: form.type2,

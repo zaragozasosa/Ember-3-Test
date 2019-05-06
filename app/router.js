@@ -12,6 +12,8 @@ Router.map(function() {
   });
   this.route("pokemon", { path: "pokemon/:pokemon_id" }, function() {
     this.route("delete");
+    this.route("add-move");
+    this.route("edit");
   });
 });
 

@@ -1,26 +1,26 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
 
-module('Integration | Component | basic-modal', function(hooks) {
+module("Integration | Component | basic-modal", function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test("it renders", async function(assert) {
+    this.set("modalOpen", true);
 
     await render(hbs`{{basic-modal}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), "");
 
-    // Template block usage:
     await render(hbs`
-      {{#basic-modal}}
+      <BasicModal @modalOpen={{modalOpen}}>
         template block text
-      {{/basic-modal}}
+      </BasicModal>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(
+      this.element.textContent.trim().indexOf("template block text") !== -1
+    );
   });
 });

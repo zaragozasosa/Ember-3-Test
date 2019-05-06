@@ -2,7 +2,7 @@ import Component from "@ember/component";
 
 export default Component.extend({
   modalOpen: false,
-  model: null,
+  modelX: null,
   title: null,
   errors: null,
   submitText: "Save",
@@ -15,7 +15,7 @@ export default Component.extend({
     closeModal() {
       this.setProperties({
         modalOpen: false,
-        model: null,
+        modelX: null,
         title: null,
         errors: null
       });
