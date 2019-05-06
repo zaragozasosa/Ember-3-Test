@@ -9,13 +9,14 @@ You will need the following things properly installed on your computer.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
 * [Ember CLI](https://ember-cli.com/)
+* [Ember CLI MIRAGE](https://www.ember-cli-mirage.com/)
 * [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd legalmation-app`
 * `npm install`
+* `ember s`
 
 ## External libraries
 
